@@ -3,5 +3,6 @@ dist
 .npm-cache
 .env
 .env.local
+.env.*.local
 .vercel
 *.log

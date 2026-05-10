@@ -11,7 +11,7 @@ const seed = {
     confidenceThreshold: Number(import.meta.env.VITE_DEFAULT_CONFIDENCE_THRESHOLD || 65),
     figmaProxyUrl: import.meta.env.VITE_FIGMA_PROXY_URL || '',
     figmaApiKey: '',
-    defaultFigmaUrl: import.meta.env.VITE_DEFAULT_FIGMA_URL || 'https://www.figma.com/design/HKa8PnQ5BefG84YtrOXyeJ/Al-Ghurair-Mobility--Copia-',
+    defaultFigmaUrl: import.meta.env.VITE_DEFAULT_FIGMA_URL || '',
     cacheMaxAgeHours: 24,
     figmaDepth: 2,
     showLowConfidence: true,

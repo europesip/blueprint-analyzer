@@ -60,15 +60,24 @@ The app calls four proxy endpoints that you must provide separately:
 
 Without the proxy you can still use **JSON file import** and the bundled sample design.
 
-### Environment variables (all optional)
+### Environment variables
+
+Copy `.env.example` to `.env.local` and fill in the values you need. All variables are optional — the app runs without any of them.
+
+```bash
+cp .env.example .env.local
+```
 
 | Variable | Default | Purpose |
 |---|---|---|
-| `VITE_RULESET_VERSION` | `guide-v7` | Label embedded in exports |
-| `VITE_APP_STORAGE_KEY` | `blueprint-analyzer:v1` | localStorage key |
-| `VITE_DEFAULT_CONFIDENCE_THRESHOLD` | `65` | Initial classifier threshold |
-| `VITE_FIGMA_PROXY_URL` | `/api/figma` | Override Figma proxy endpoint |
-| `VITE_DEFAULT_FIGMA_URL` | _(empty)_ | Pre-fill the Figma URL input |
+| `VITE_DEFAULT_FIGMA_URL` | _(empty)_ | Pre-fills the Figma URL input on load — set this to your project's Figma file URL so you don't have to paste it every time |
+| `VITE_DEFAULT_CONFIDENCE_THRESHOLD` | `65` | Initial confidence threshold (0–100) below which a component goes to REVIEW |
+| `VITE_FIGMA_PROXY_URL` | `/api/figma` | Override the Figma proxy endpoint if you run the sidecar on a different host/port |
+| `VITE_APP_STORAGE_KEY` | `blueprint-analyzer:v1` | localStorage namespace key — change if you run multiple instances |
+| `VITE_RULESET_VERSION` | `guide-v7` | Label embedded in exported `.analysis.json` files |
+| `FIGMA_API_TOKEN` | _(empty)_ | Server-side Figma token used by the `/api/figma` and `/api/figma-image` proxy functions (e.g. on Vercel). For local browser use, enter the token in the app's Settings panel instead — it is stored only in localStorage and never committed. |
+
+> **Security note**: never put a real Figma token in `.env.example` or commit a `.env.local` / `.env` file. The `.gitignore` already excludes `.env*.local` and `.env`.
 
 ---
 
