@@ -8,6 +8,7 @@
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
     "lint": "eslint .",
+    "deploy:preview": "vercel",
     "deploy": "vercel --prod"
   },
   "dependencies": {
