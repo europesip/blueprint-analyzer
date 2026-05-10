@@ -2,14 +2,7 @@
   "framework": "vite",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "functions": {
-    "api/figma.js":          { "maxDuration": 60 },
-    "api/figma-image.js":    { "maxDuration": 30 },
-    "api/web.js":            { "maxDuration": 30 },
-    "api/web-screenshot.js": { "maxDuration": 30 },
-    "api/log.js":            { "maxDuration": 10 }
-  },
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/((?!api).*)", "destination": "/index.html" }
   ]
 }
