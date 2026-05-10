@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #16202a;
+  background: #f8fafc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #aab5c4 transparent;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(15, 118, 110, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 118, 110, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  body {
+    background: white;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  main {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  #analysis-report,
+  #analysis-report * {
+    visibility: visible;
+  }
+
+  #analysis-report {
+    position: static;
+    width: 100%;
+  }
+
+  #analysis-report section,
+  #analysis-report article,
+  #analysis-report table,
+  #analysis-report tr {
+    break-inside: avoid;
+  }
+
+  #analysis-report button,
+  #analysis-report details > summary {
+    display: none !important;
+  }
+
+  #analysis-report .shadow-panel {
+    box-shadow: none !important;
+  }
+
+  #analysis-report .report-details {
+    display: block !important;
+  }
+}
