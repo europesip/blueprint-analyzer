@@ -249,7 +249,7 @@ export function ImportPanel({
         step(`Calling Figma API at depth ${draft.figmaDepth || settings.figmaDepth || 2}`, 24);
         await waitForPaint();
         const result = await loadFigmaDesign({
-          input: draft.figmaInput,
+          input: draft.figmaInput || import.meta.env.VITE_DEFAULT_FIGMA_URL || '',
           token: settings.figmaApiKey,
           forceRefresh: true,
           depth: Math.min(Math.max(Number(draft.figmaDepth || settings.figmaDepth || 2), 1), 4),
@@ -490,6 +490,13 @@ export function ImportPanel({
                     className="h-11 w-full rounded border border-line px-3 text-sm"
                     placeholder="https://www.figma.com/design/..."
                   />
+                  {!draft.figmaInput && import.meta.env.VITE_DEFAULT_FIGMA_URL && (
+                    <p className="mt-1.5 flex items-start gap-1.5 text-xs leading-5 text-slate-500">
+                      <span className="mt-0.5 shrink-0 text-slate-400">ℹ</span>
+                      No URL entered — using default from environment:{' '}
+                      <span className="font-mono text-slate-600 break-all">{import.meta.env.VITE_DEFAULT_FIGMA_URL}</span>
+                    </p>
+                  )}
                 </label>
                 <label className="block">
                   <span className="mb-2 block text-sm font-medium text-slate-700">Figma depth</span>
